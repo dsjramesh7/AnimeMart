@@ -9,6 +9,7 @@ export const products = [
     id: 2,
     name: "One Piece T-Shirt",
     price: 19.99,
-    image: "https://via.placeholder.com/150",
+    image:
+      "https://pronk.in/cdn/shop/files/33_6e138649-0f4f-4ec6-8b17-f35919cc9086.jpg?v=1708775428",
   },
 ];
