@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { removeCartItem } from "../redux/feature/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   // console.log(cartItems);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
@@ -29,6 +31,9 @@ const Cart = () => {
               </button>
             </div>
           ))}
+          {cartItems.length > 0 && (
+            <button onClick={() => navigate("/checkout")}>Checkout</button>
+          )}
         </div>
       )}
     </div>
