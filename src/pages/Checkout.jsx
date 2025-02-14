@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCartItem } from "../redux/feature/cartSlice";
+import { addFormData, clearFormData } from "../redux/feature/formSlice";
 
 const Checkout = () => {
   const [form, setForm] = useState({ name: "", address: "", email: "" });
   const checkoutData = useSelector((state) => state.cart.cartItems);
-  // console.log(checkoutData);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -19,12 +19,16 @@ const Checkout = () => {
       alert("Please fill in all fields!");
       return;
     }
-    alert("Order Placed Successfully!🎉");
+
+    console.log("Form State before dispatch:", form);
+    dispatch(addFormData({ ...form }));
+
     dispatch(clearCartItem());
+    dispatch(clearFormData());
+
+    alert("Order Placed Successfully!🎉");
     navigate("/");
   };
-
-  console.log("form", form);
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <h1 className="text-3xl font-bold mb-6">Checkout</h1>
