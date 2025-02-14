@@ -9,3 +9,4 @@
 - features that I am thinking of adding:
   - AddCart ✅
   - RemoveCart ✅
+  - Checkout ✅
